@@ -10,7 +10,7 @@ const app = express();
  * PATCH = Alterar uma informação específica
  */
 
-app.get("/", (request, response)=> {
+app.get("/", (request, response) => {
   return response.json({
     message: "Olá NLW #5",
   });
