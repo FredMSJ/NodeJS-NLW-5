@@ -3,9 +3,9 @@ import { Message } from "../entities/Message";
 import { MessagesRepository } from "../repositories/MessagesRepository"
 
 interface IMessageCreate{
-  admin_id: string;
+  admin_id?: string;
   text: string;
-  user_id: string
+  user_id: string;
 }
 
 
@@ -21,7 +21,7 @@ class MessagesService{
     const message = this.messagesRepository.create({
       admin_id,
       text,
-      user_id
+      user_id,
     });
 
     await this.messagesRepository.save(message);
@@ -41,4 +41,4 @@ class MessagesService{
   }
 }
 
-export {MessagesService};
+export { MessagesService };

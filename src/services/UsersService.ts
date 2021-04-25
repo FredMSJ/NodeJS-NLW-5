@@ -2,6 +2,11 @@ import { getCustomRepository, Repository } from "typeorm"
 import { User } from "../entities/User"
 import { UsersRepository } from "../repositories/UsersRepository"
 
+// class  UsersService {
+//   async findByEmail(email: string) {
+//       const user = await this.usersRepository.findOne({ email })
+//       return user
+//   }
 
 
 class UsersService {
@@ -11,6 +16,12 @@ class UsersService {
     this.usersRepository = getCustomRepository(UsersRepository)
 
   }
+
+  async findByEmail(email: string) {
+    const user = await this.usersRepository.findOne({ email })
+    return user
+  }
+
   async create(email: string) {
      //Verificar se o usuario existe
     const userExists = await this.usersRepository.findOne({
